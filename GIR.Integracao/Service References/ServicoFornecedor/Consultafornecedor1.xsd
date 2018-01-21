@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:Q1="http://ws.cassi.com.br/v1/Contrato/" xmlns:tns="http://ws.cassi.com.br/Fornecedor" xmlns:Q2="http://ws.cassi.com.br/v1/endereco/" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/V1/Fornecedor" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="http://10.1.100.26:8011/ServicoConsultaFornecedor/Proxy/V1/Consultafornecedor?SCHEMA%2FServicoConsultaFornecedor%2FXsd%2FProxy%2FV1%2FEndereco" namespace="http://ws.cassi.com.br/v1/endereco/" />
+  <complexType name="fornecedor">
+    <sequence>
+      <element name="idFornecedor" nillable="true" type="int" />
+      <element name="nomeFornecedor" nillable="true" type="string" />
+      <element name="cpfCnpjFornecedor" nillable="true" type="string" />
+      <element name="endereco" type="Q2:endereco" />
+      <element name="telefoneComercial" nillable="true" type="string" />
+      <element name="telefoneCelular" nillable="true" type="string" />
+      <element name="email" nillable="true" type="string" />
+    </sequence>
+  </complexType>
+</schema>

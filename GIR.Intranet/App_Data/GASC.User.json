@@ -1,0 +1,35 @@
+﻿/*{
+    //Perfil Analista Contábil
+    IdUsuario: 37204,
+    LoginUsuario: "daniel.ramos",
+    NomeUsuario: "Daniel",
+    EmailUsuario: "daniel.ramos@cassi.com.br",
+    IdTipoUsuario: 1,
+    IdEspecializacaoUsuario: null,
+    Perfis: null,
+    DadosComplementaresUsuario: null
+}*/
+
+{
+    //Perfil Analista DSC
+    IdUsuario: 37123,
+    LoginUsuario: "ana.bell",
+    NomeUsuario: "I'm Batman",
+    EmailUsuario: "andressa.ribeiro@cassi.com.br",
+    IdTipoUsuario: 1,
+    IdEspecializacaoUsuario: null,
+    Perfis: null,
+    DadosComplementaresUsuario: null
+}
+
+/*{ 
+    //Perfil Funcionário CASSI
+    IdUsuario: 37207,
+    LoginUsuario: "ana.bell",
+    NomeUsuario: "He-man",
+    EmailUsuario: "he.man@cassi.com.br",
+    IdTipoUsuario: 1,
+    IdEspecializacaoUsuario: null,
+    Perfis: null,
+    DadosComplementaresUsuario: null
+}*/

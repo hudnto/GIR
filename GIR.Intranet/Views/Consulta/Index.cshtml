@@ -1,0 +1,74 @@
+﻿@model GIR.Intranet.Models.ConsultaInformeProcessadoVM
+@using GIR.Core.Infraestrutura.Extensoes
+@using GIR.Core.Negocio.Enum
+@{
+    ViewBag.Title = "Comprovante de Rendimentos DIRF";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Consulta", FormMethod.Post))
+{
+    <div class="col-xs-12 col-md-12">
+        <div>
+            <h3>@ViewBag.Title</h3>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Codigo, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Codigo, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Descricao, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Descricao, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoExercicio, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.AnoExercicio.Year, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoCalendario, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.AnoCalendario.Year, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.RadioButtonFor(m => m.TipoContribuinte, TipoContribuinte.FuncionarioCassi, new { disabled = "true" })
+                    @Html.Label(TipoContribuinte.FuncionarioCassi.GetDescription(), new { @class = "control-label" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.RadioButtonFor(m => m.TipoContribuinte, TipoContribuinte.PrestadorFornecedor, new { disabled = "true" })
+                    @Html.Label(TipoContribuinte.PrestadorFornecedor.GetDescription(), new { @class = "control-label" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @{Html.RenderPartial("_ConferirPV");}
+
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 text-right">
+                @Html.Raw(Html.ActionLink("[img]", "Consultar", "Consulta",
+                new { @class = "btn btn-primary" }).ToHtmlString().Replace("[img]", "<span class=\"fa fa-search\"></span> Pesquisar"))
+                
+                @if (true)//TODO: Verificar se se situação é "Processado"
+                {
+                    @Html.Raw(Html.ActionLink("[img]", "Conferir", "Consulta",
+                new { @class = "btn btn-success" }).ToHtmlString().Replace("[img]", "<span class=\"fa fa-check\"></span> Aprovar"))
+                }
+            </div>
+        </div>
+    </div>
+}

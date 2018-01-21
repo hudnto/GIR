@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N1="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" xmlns:WL5G3N3="http://tempuri.org/" name="ServicoColaborador" targetNamespace="http://tempuri.org/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:import namespace="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" location="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?WSDL%2FServicoConsultaColaborador%2FWsdl%2FBusiness%2FV1%2FConsultaColaboradorV2%2FWSDL_-258442457" />
+  <WL5G3N0:types />
+  <WL5G3N0:binding name="BasicHttpBinding_IServicoColaborador" type="WL5G3N1:IServicoColaborador">
+    <WL5G3N2:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N0:operation name="ObterColaborador">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterColaborador" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="ServicoExceptionFault">
+        <WL5G3N2:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ObterFuncionarioPorMatricula">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterFuncionarioPorMatricula" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="ServicoExceptionFault">
+        <WL5G3N2:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ObterColaboradorPorCPF">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterColaboradorPorCPF" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="ServicoExceptionFault">
+        <WL5G3N2:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ListarColaborador">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ListarColaborador" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="ServicoExceptionFault">
+        <WL5G3N2:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="BasicHttpBinding_IServicoColaboradorQSService">
+    <WL5G3N0:port name="BasicHttpBinding_IServicoColaboradorQSPort" binding="WL5G3N3:BasicHttpBinding_IServicoColaborador">
+      <WL5G3N2:address location="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador" />
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N1="http://ws.cassi.com.br/V1/ServicoConsultaFornecedor/" name="ServicoConsultaFornecedor" targetNamespace="http://ws.cassi.com.br/V1/ServicoConsultaFornecedor/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:Q1="http://ws.cassi.com.br/V1/Fornecedor" xmlns:tns="http://ws.cassi.com.br/V1/ServicoConsultaFornecedor/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ws.cassi.com.br/V1/ServicoConsultaFornecedor/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaFornecedor/Proxy/V1/Consultafornecedor?SCHEMA%2FServicoConsultaFornecedor%2FXsd%2FProxy%2FV1%2FFornecedor" namespace="http://ws.cassi.com.br/V1/Fornecedor" />
+      <xsd:element name="ListarFornecedor">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="idFornecedor" type="xsd:string" />
+            <xsd:element name="nomeFornecedor" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ListarFornecedorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="codigo" type="xsd:int" />
+            <xsd:element name="mensagem" type="xsd:string" />
+            <xsd:element name="fornecedor" type="Q1:fornecedor" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="ListarFornecedorRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ListarFornecedor" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ListarFornecedorResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ListarFornecedorResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ServicoConsultaFornecedor">
+    <WL5G3N0:operation name="ListarFornecedor">
+      <WL5G3N0:input message="WL5G3N1:ListarFornecedorRequest" />
+      <WL5G3N0:output message="WL5G3N1:ListarFornecedorResponse" />
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ServicoConsultaFornecedorSOAP" type="WL5G3N1:ServicoConsultaFornecedor">
+    <WL5G3N2:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N0:operation name="ListarFornecedor">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/V1/ServicoConsultaFornecedor/ListarFornecedor" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ServicoConsultaFornecedorSOAPQSService">
+    <WL5G3N0:port name="ServicoConsultaFornecedorSOAPQSPort" binding="WL5G3N1:ServicoConsultaFornecedorSOAP">
+      <WL5G3N2:address location="http://10.1.100.26:8011/ServicoConsultaFornecedor/Proxy/V1/Consultafornecedor" />
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

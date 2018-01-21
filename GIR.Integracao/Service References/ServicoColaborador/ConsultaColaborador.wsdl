@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N2="http://schemas.datacontract.org/2004/07/Servico.Erros" xmlns:WL5G3N1="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" xmlns:WL5G3N3="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" targetNamespace="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/Imports" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_1842427567" namespace="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" />
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_1706070453" namespace="http://schemas.datacontract.org/2004/07/Servico.Erros" />
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1759438032" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1066336335" namespace="http://ws.cassi.com.br/v1/retornos/RetornoColaborador" />
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-373234638" namespace="http://ws.cassi.com.br/v1/retornos/Retorno" />
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_319867059" namespace="http://ws.cassi.com.br/v2/modelos/Colaborador" />
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_1012968756" namespace="http://ws.cassi.com.br/v1/modelos/UnidadeOrganizacional" />
+      <xsd:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1895795146" namespace="http://ws.cassi.com.br/v1/retornos/RetornoListaColaborador" />
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="IServicoColaborador_ObterColaborador_InputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ObterColaborador" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterColaborador_OutputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ObterColaboradorResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterColaborador_ServicoExceptionFault_FaultMessage">
+    <WL5G3N0:part name="detail" element="WL5G3N2:ServicoException" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterFuncionarioPorMatricula_InputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ObterFuncionarioPorMatricula" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterFuncionarioPorMatricula_OutputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ObterFuncionarioPorMatriculaResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterFuncionarioPorMatricula_ServicoExceptionFault_FaultMessage">
+    <WL5G3N0:part name="detail" element="WL5G3N2:ServicoException" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterColaboradorPorCPF_InputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ObterColaboradorPorCPF" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterColaboradorPorCPF_OutputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ObterColaboradorPorCPFResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ObterColaboradorPorCPF_ServicoExceptionFault_FaultMessage">
+    <WL5G3N0:part name="detail" element="WL5G3N2:ServicoException" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ListarColaborador_InputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ListarColaborador" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ListarColaborador_OutputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ListarColaboradorResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IServicoColaborador_ListarColaborador_ServicoExceptionFault_FaultMessage">
+    <WL5G3N0:part name="detail" element="WL5G3N2:ServicoException" />
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="IServicoColaborador">
+    <WL5G3N0:operation name="ObterColaborador">
+      <WL5G3N0:input WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterColaborador" message="WL5G3N1:IServicoColaborador_ObterColaborador_InputMessage" />
+      <WL5G3N0:output WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterColaboradorResponse" message="WL5G3N1:IServicoColaborador_ObterColaborador_OutputMessage" />
+      <WL5G3N0:fault name="ServicoExceptionFault" message="WL5G3N1:IServicoColaborador_ObterColaborador_ServicoExceptionFault_FaultMessage" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ObterFuncionarioPorMatricula">
+      <WL5G3N0:input WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterFuncionarioPorMatricula" message="WL5G3N1:IServicoColaborador_ObterFuncionarioPorMatricula_InputMessage" />
+      <WL5G3N0:output WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterFuncionarioPorMatriculaResponse" message="WL5G3N1:IServicoColaborador_ObterFuncionarioPorMatricula_OutputMessage" />
+      <WL5G3N0:fault name="ServicoExceptionFault" message="WL5G3N1:IServicoColaborador_ObterFuncionarioPorMatricula_ServicoExceptionFault_FaultMessage" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ObterColaboradorPorCPF">
+      <WL5G3N0:input WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterColaboradorPorCPF" message="WL5G3N1:IServicoColaborador_ObterColaboradorPorCPF_InputMessage" />
+      <WL5G3N0:output WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ObterColaboradorPorCPFResponse" message="WL5G3N1:IServicoColaborador_ObterColaboradorPorCPF_OutputMessage" />
+      <WL5G3N0:fault name="ServicoExceptionFault" message="WL5G3N1:IServicoColaborador_ObterColaboradorPorCPF_ServicoExceptionFault_FaultMessage" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ListarColaborador">
+      <WL5G3N0:input WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ListarColaborador" message="WL5G3N1:IServicoColaborador_ListarColaborador_InputMessage" />
+      <WL5G3N0:output WL5G3N3:Action="http://ws.cassi.com.br/v2/servicos/ServicoColaborador/IServicoColaborador/ListarColaboradorResponse" message="WL5G3N1:IServicoColaborador_ListarColaborador_OutputMessage" />
+      <WL5G3N0:fault name="ServicoExceptionFault" message="WL5G3N1:IServicoColaborador_ListarColaborador_ServicoExceptionFault_FaultMessage" />
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+</WL5G3N0:definitions>

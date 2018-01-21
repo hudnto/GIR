@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GASC.Servico.Retornos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GASC.Servico.Retornos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" />
+  <xs:complexType name="RetornoUsuario">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Retorno">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" minOccurs="0" name="Usuario" nillable="true" type="q1:Usuario" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetornoUsuario" nillable="true" type="tns:RetornoUsuario" />
+  <xs:complexType name="Retorno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="Mensagem" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Retorno" nillable="true" type="tns:Retorno" />
+  <xs:complexType name="RetornoPerfisUsuario">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Retorno">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" minOccurs="0" name="Perfis" nillable="true" type="q2:ArrayOfPerfilUsuario" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetornoPerfisUsuario" nillable="true" type="tns:RetornoPerfisUsuario" />
+  <xs:complexType name="RetornoDadosComplementaresUsuario">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Retorno">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" minOccurs="0" name="DadosComplementares" nillable="true" type="q3:ArrayOfDadoComplementarUsuario" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetornoDadosComplementaresUsuario" nillable="true" type="tns:RetornoDadosComplementaresUsuario" />
+  <xs:complexType name="RetornoUsuarios">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Retorno">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" minOccurs="0" name="Usuarios" nillable="true" type="q4:ArrayOfUsuario" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetornoUsuarios" nillable="true" type="tns:RetornoUsuarios" />
+  <xs:complexType name="RetornoSistemas">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" minOccurs="0" name="Sistemas" nillable="true" type="q5:ArrayOfSistemaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetornoSistemas" nillable="true" type="tns:RetornoSistemas" />
+  <xs:complexType name="RetornoSistema">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Retorno">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" minOccurs="0" name="Sistema" nillable="true" type="q6:SistemaUsuario" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetornoSistema" nillable="true" type="tns:RetornoSistema" />
+</xs:schema>

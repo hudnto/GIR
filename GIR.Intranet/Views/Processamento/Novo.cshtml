@@ -1,0 +1,175 @@
+﻿@model LoteVM
+@using GIR.Core.Infraestrutura.Extensoes
+@using GIR.Core.Negocio.Enum
+@using GIR.Intranet.Infraestructure.Helpers
+@using GIR.Intranet.Models
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "Informe de Rendimentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Novo", "Processamento", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-xs-12 col-md-12">
+        <div>
+            <h3>Informe de Rendimentos</h3>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-md-3 col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoExercicio, new { @class = "control-label" })
+                    <div class="input-group col-sx-9 date">
+                        @Html.TextBoxFor(m => m.AnoExercicio, new { @class = "form-control", maxlength = 4, alt = "numero"})
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-3 col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoCalendario, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.AnoCalendario, new { @class = "form-control", maxlength = 4, alt = "numero", @readonly = true  })
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-6 col-lg-8">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Descricao, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Descricao, new { @class = "form-control", maxlength = 50 })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @Html.RadioButtonsIncluirRotina(m => m.TipoContribuinte, User)
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => m.Individual)
+                    @Html.LabelFor(m => m.Individual, new { @class = "control-label", data_toggle = "tooltip", title = "Se marcado indica a geração de arquivo individual.", rel = "tooltip" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+                <div class="list-group list-group-root">
+                    <a href="#item-0" class="list-group-item active in" data-toggle="collapse" expanded="true">
+                        <i class="glyphicon glyphicon-chevron-down" style="margin-right: 0.5em"></i>
+                    </a>
+                    <div class="list-group collapse in" id="item-0" style="height: auto;">
+                        <div class="list-group collapse in" id="item-0-0" style="height: auto;">
+                            <div class="item" title="Clique aqui para anexar um ou vários anexos">
+                                <input type="file" class="hidden" multiple name="pdfs" accept=".pdf">
+                                <input type="hidden" data-documentos="[]">
+                                <div class="list-group-item item-verificacao">
+                                    <div style="float: left; padding-right: 1em;" class="itemenviado hidden">
+                                        <div class="checkmark-circle">
+                                            <div class="background"></div>
+                                            <div class="checkmark draw"></div>
+                                        </div>
+                                    </div>
+                                    <div class="itens itens-pdf">
+                                        <label>
+                                            <span class="glyphicon glyphicon-open">
+                                            </span>
+                                            Anexar: Arquivos PDF
+                                        </label>
+                                        <span style="margin-left: 1em; float: right">
+                                        </span>
+                                        <div style="font-style: italic">
+                                            <span>Informar o caminho onde constam os arquivos PDF que serão separados na rotina.</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="row arquivos">
+                                        @{
+                                            if (Model != null)
+                                            {
+                                                var arquivos = Model.ArquivosImportados.Where(a => a.ExtensaoArquivo == ".pdf").ToList();
+                                                var arquivosFail = Model.ArquivosImportados.Where(a => a.ArquivoFalhouAoImportar).ToList();
+
+                                                arquivos = arquivos.Concat(arquivosFail).ToList();
+
+                                                int i = 1;
+                                                foreach (var item in arquivos)
+                                                {
+                                                    var nomeArquivo = item.NomeArquivo + (item.ArquivoFalhouAoImportar ? " - ERRO DE ENVIO" : "");
+                                                    var tipoBotao = (item.ArquivoFalhouAoImportar ? "btn-danger" : "btn-success");
+                                                    var tipoIcone = (item.ArquivoFalhouAoImportar ? "glyphicon-exclamation-sign" : "glyphicon-paperclip");
+
+                                                    <div class="btn-group anexo col-xs-2">
+                                                        <button class="btn btn-default btn-xs btn-sem-acao" data-toggle="tooltip" title="@nomeArquivo" rel="tooltip">Arquivo @i</button>
+                                                        <button class="btn @tipoBotao btn-xs btn-sem-acao"><span class="glyphicon @tipoIcone"></span></button>
+                                                    </div>
+
+                                                    i++;
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item" title="Clique aqui para anexar um ou vários anexos">
+                                <input type="file" value="" class="hidden" name="txt" accept=".txt">
+                                <input type="hidden" data-documentos="[]">
+                                <div class="list-group-item item-verificacao">
+                                    <div style="float: left; padding-right: 1em;" class="itemenviado hidden">
+                                        <div class="checkmark-circle">
+                                            <div class="background"></div>
+                                            <div class="checkmark draw"></div>
+                                        </div>
+                                    </div>
+                                    <div class="itens itens-txt">
+                                        <label>
+                                            <span class="glyphicon glyphicon-open">
+                                            </span>
+                                            Anexar: Arquivo gerador da DIRF (txt)
+                                        </label>
+                                        <span style="margin-left: 1em; float: right">
+                                        </span>
+                                        <div style="font-style: italic">
+                                            <span>Informar o arquivo de texto que originou a DIRF.</span>
+                                        </div>
+                                    </div>
+                                    <div class="row arquivos">
+                                        @{
+                                            if (Model != null)
+                                            {
+                                                var arquivoTxt = Model.ArquivosImportados.FirstOrDefault(a => a.ExtensaoArquivo == ".txt");
+                                                if (arquivoTxt != null)
+                                                {
+                                                    var nomeArquivo = arquivoTxt.NomeArquivo + (arquivoTxt.ArquivoFalhouAoImportar ? " - ERRO DE ENVIO" : "");
+                                                    var tipoBotao = (arquivoTxt.ArquivoFalhouAoImportar ? "btn-danger" : "btn-success");
+                                                    var tipoIcone = (arquivoTxt.ArquivoFalhouAoImportar ? "glyphicon-exclamation-sign" : "glyphicon-paperclip");
+
+                                                    <div class="btn-group anexo col-xs-2">
+                                                        <button class="btn btn-default btn-xs btn-sem-acao" data-toggle="tooltip" title="@nomeArquivo" rel="tooltip">Arquivo 1</button>
+                                                        <button class="btn @tipoBotao btn-xs btn-sem-acao"><span class="glyphicon @tipoIcone"></span></button>
+                                                    </div>
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="operacao" value=""/>
+                <input type="hidden" name="codigo" value=""/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button type="button" id="executar" name="executar" class="button btn btn-primary" data-toggle="tooltip" title="Se acionado inicia o processo de importação dos arquivos e separação por CPF/CNPJ." rel="tooltip">Executar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    const string mensagemIndividual = "Confirma a geração do comprovante de forma individual? Caso já exista arquivo gerado, este será substituído.";
+    const string mensagemReprocessamento = "Já existe processamento de Comprovante de Rendimentos para o exercício informado. Os arquivos serão substituídos. Deseja Continuar?";
+    @RazorHelpers.Modal("modal-individual", mensagemIndividual)
+    @RazorHelpers.Modal("modal-reprocessamento", mensagemReprocessamento)
+}
+@section scripts {
+    <script src="~/Content/Scripts/Processamento/Novo.js"></script>
+}

@@ -1,0 +1,74 @@
+﻿@model GIR.Intranet.Models.ConsultaInformeVM
+@using GIR.Intranet.Infraestructure.Helpers
+
+@{
+    ViewBag.Title = "Gerenciador de Informes de Rendimentos";
+}
+
+@using (Ajax.BeginForm("ConsultarInformeRendimento", "Processamento", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    OnComplete = "Informe.Consulta.BuscaPaginada"
+}))
+{
+    <div class="col-xs-12 col-md-12">
+        <div>
+            <h3>Gerenciador de Informe de Rendimentos - DIRF</h3>
+            <hr />
+        </div>
+        <div class="row">
+            <fieldset class="col-md-8 periodo-processamento">
+                <legend class="periodo-processamento">Período de processamento</legend>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.DataInicio, new { @class = "control-label" })
+                            <div class="input-group col-sx-9 date">
+                                @Html.TextBoxFor(m => m.DataInicio, new { @class = "form-control date", alt = "date" })
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.DataFinal, new { @class = "control-label" })
+                            <div class="input-group date">
+                                @Html.TextBoxFor(m => m.DataFinal, new { @class = "form-control date", alt = "date" })
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="col-md-4" style="margin-top: 40px">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoExercicio, new { @class = "control-label" })
+                    @Html.DropDownListAnoExercicioFor(m => m.AnoExercicio, new { @class = "form-control chosen-select" }, true)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                @Html.RadioButtonsForEnums(m => m.TipoContribuinte)
+            </div>
+            <div class="col-md-4 text-right">
+                @Html.ActionLink("Novo", "Novo", "Processamento", null, new
+                {
+                    @class = "btn btn-default",
+                    data_toggle = "tooltip",
+                    title = "Incluir e processar nova rotina de geração DIRF.",
+                    rel = "tooltip"
+                })
+                <button class="btn btn-default btn-primary">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="col-xs-12 col-md-12">
+    <table id="tabelaConsulta"></table>
+</div>
+
+@section scripts {
+    <script src="~/Content/Scripts/Processamento/ConsultarInformeRendimento.js"></script>
+}

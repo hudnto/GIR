@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Usuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DadosComplementares" nillable="true" type="tns:ArrayOfDadoComplementarUsuario" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdEspecializacao" type="xs:int" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Perfis" nillable="true" type="tns:ArrayOfPerfilUsuario" />
+      <xs:element minOccurs="0" name="TipoUsuario" nillable="true" type="tns:TipoUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+  <xs:complexType name="ArrayOfDadoComplementarUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DadoComplementarUsuario" nillable="true" type="tns:DadoComplementarUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDadoComplementarUsuario" nillable="true" type="tns:ArrayOfDadoComplementarUsuario" />
+  <xs:complexType name="DadoComplementarUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Chave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DadoComplementarUsuario" nillable="true" type="tns:DadoComplementarUsuario" />
+  <xs:complexType name="ArrayOfPerfilUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PerfilUsuario" nillable="true" type="tns:PerfilUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerfilUsuario" nillable="true" type="tns:ArrayOfPerfilUsuario" />
+  <xs:complexType name="PerfilUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Funcionalidades" nillable="true" type="tns:ArrayOfFuncionalidadeUsuario" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PerfilUsuario" nillable="true" type="tns:PerfilUsuario" />
+  <xs:complexType name="ArrayOfFuncionalidadeUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FuncionalidadeUsuario" nillable="true" type="tns:FuncionalidadeUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFuncionalidadeUsuario" nillable="true" type="tns:ArrayOfFuncionalidadeUsuario" />
+  <xs:complexType name="FuncionalidadeUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Sigla" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sistema" nillable="true" type="tns:SistemaUsuario" />
+      <xs:element minOccurs="0" name="Situacao" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FuncionalidadeUsuario" nillable="true" type="tns:FuncionalidadeUsuario" />
+  <xs:complexType name="SistemaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sigla" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Situacao" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SistemaUsuario" nillable="true" type="tns:SistemaUsuario" />
+  <xs:complexType name="TipoUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoUsuario" nillable="true" type="tns:TipoUsuario" />
+  <xs:complexType name="ArrayOfUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsuario" nillable="true" type="tns:ArrayOfUsuario" />
+  <xs:complexType name="ArrayOfSistemaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SistemaUsuario" nillable="true" type="tns:SistemaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSistemaUsuario" nillable="true" type="tns:ArrayOfSistemaUsuario" />
+</xs:schema>

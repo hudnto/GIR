@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://ws.cassi.com.br/v1/Unidade/" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/v1/Unidade/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="id" nillable="true" type="int" />
+  <element name="codigo" nillable="true" type="int" />
+  <element name="cnpj" nillable="true" type="string" />
+  <element name="telefone" nillable="true" type="string" />
+  <element name="nome" nillable="true" type="string" />
+</schema>

@@ -1,0 +1,43 @@
+﻿@model GIR.Intranet.Models.ConferirComprovanteVM
+
+@using GIR.Intranet.Infraestructure.Helpers
+@{
+    ViewBag.Title = "Analisar Comprovantes de Rendimentos DIRF";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ConferirInforme", "Consulta", FormMethod.Post))
+{
+    <div class="col-xs-12 col-md-12">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("CPF/CNPJ:", new { @class = "control-label", @for = "CpfCnpj" })
+                    @Html.CpfcnpjFor(c => c.Comprovantes, new { @class = "chosen-select chosen-single form-control" })
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("UF:", new { @class = "control-label", @for = "Uf" })
+                    @Html.UfFor(u => u.Comprovantes, new { @class = "chosen-select chosen-single form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("Área RH:", new { @class = "control-label", @for = "AreaRh" })
+                    @Html.AreaRhFor(a => a.Comprovantes, new { @class = "chosen-select chosen-single form-control", disabled = "true" })
+                </div>
+            </div>
+        </div>
+       
+    </div>
+}
+
+<div class="col-xs-12 col-md-12">
+    <table id="tabelaComprovanteProcessado"></table>
+</div>
+
+@section scripts {
+    <script src="~/Content/Scripts/Consulta/Conferir.js"></script>
+}

@@ -1,0 +1,69 @@
+﻿@model GIR.Intranet.Models.ConsultaInformeColaboradorVM
+@using GIR.Intranet.Infraestructure.Helpers
+@{
+    ViewBag.Title = "DEC01 - Acessar Informe de Rendimentos - Colaborador";
+}
+
+@using (Ajax.BeginForm("Index", "InformeColaborador", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    OnComplete = "InformeColaborador.Consulta.BuscaPaginada"
+}))
+{
+    <div class="col-xs-12 col-md-12">
+        <div>
+            <h3>Consultar DIRF – Prestadores e Fornecedores CASSI</h3>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span>
+                    Para realizar a pesquisa do Informe de Rendimentos DIRF de Prestadores e Fornecedores, preencha 
+                    os campos abaixo.
+                    <br />
+                    <br />
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoExercicio, new { @class = "control-label"})
+                    @Html.DropDownListAnoExercicioFor(m => m.AnoExercicio, new { @class = "form-control chosen-select" }, true)
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CPFCNPJ, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.CPFCNPJ, 
+                    new {
+                        @class = "form-control",
+                        onpaste = "InformeColaborador.Consulta.Mascara(this)",
+                        onkeypress = "InformeColaborador.Consulta.Mascara(this)", 
+                        maxlength="18" 
+                    })
+                </div>
+            </div>
+            <div class="col-md-4" style="position: absolute; bottom: 15px; right:0;">
+                
+                    <button class="btn btn-default btn-primary">Pesquisar</button>
+                    <span id="botaolimpar">
+                        @Html.ActionLink("Limpar", "Index", "InformeColaborador", null,
+                    new
+                    {
+                        @class = "btn btn-default"
+                    })
+                    </span>
+                
+            </div>
+        </div>        
+    </div>
+}
+
+<div class="col-xs-12 col-md-12">
+    <table id="tabelaConsulta"></table>
+</div>
+
+@section scripts {
+    <script src="~/Content/Scripts/InformeColaborador/Index.js"></script>
+}

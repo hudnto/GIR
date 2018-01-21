@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ee8441d9-11e2-49c4-a8aa-b2f91500e0fa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UtilitarioConsulta.xsd" MetadataType="Schema" ID="018d71af-ebb6-4807-978a-7f523370fe73" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?SCHEMA%2FServicoUtilitarioConsulta%2FXsd%2FProxy%2FUnidade" />
+    <MetadataFile FileName="UtilitarioConsulta1.xsd" MetadataType="Schema" ID="9b7e5e0b-9de3-4707-b5bd-ea3e06ee792a" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?SCHEMA%2FServicoUtilitarioConsulta%2FXsd%2FProxy%2FUnidadeEndereco" />
+    <MetadataFile FileName="UtilitarioConsulta.wsdl" MetadataType="Wsdl" ID="afcbdcb4-3f91-4fd9-9bd4-5f4ee367cd19" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?wsdl" />
+    <MetadataFile FileName="UtilitarioConsulta2.xsd" MetadataType="Schema" ID="4b5ecd34-b317-43ef-b686-99491d11d20c" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?SCHEMA%2FServicoUtilitarioConsulta%2FXsd%2FProxy%2FEndereco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

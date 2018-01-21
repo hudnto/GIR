@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd2" namespace="http://ws.cassi.com.br/v1/retornos/RetornoUnidadeOrganizacional" />
+  <xs:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd6" namespace="http://ws.cassi.com.br/v1/retornos/RetornoEstruturaOrganizacional" />
+  <xs:element name="ObterUnidadeOrganizacional">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUnidadeOrganizacional" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterUnidadeOrganizacionalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://ws.cassi.com.br/v1/retornos/RetornoUnidadeOrganizacional" minOccurs="0" name="ObterUnidadeOrganizacionalResult" nillable="true" type="q1:RetornoUnidadeOrganizacional" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterEstruturaOrganizacional">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUnidadeOrganizacional" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterEstruturaOrganizacionalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://ws.cassi.com.br/v1/retornos/RetornoEstruturaOrganizacional" minOccurs="0" name="ObterEstruturaOrganizacionalResult" nillable="true" type="q2:RetornoEstruturaOrganizacional" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N1:definitions xmlns:WL5G3N2="http://www.example.org/NewWSDLFile/" xmlns:WL5G3N0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" name="NewWSDLFile" targetNamespace="http://www.example.org/NewWSDLFile/" xmlns:WL5G3N1="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:UsingPolicy WL5G3N1:Required="true" />
+  <wsp:Policy WL5G3N0:Id="Mtom.xml">
+    <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+  </wsp:Policy>
+  <WL5G3N1:types>
+    <xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/NewWSDLFile/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.example.org/NewWSDLFile/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.example.org/NewWSDLFile/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="EnviarEmailRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="para" type="xsd:string" />
+            <xsd:element name="assunto" type="xsd:string" />
+            <xsd:element name="conteudo" type="xsd:string" />
+            <xsd:element name="de" type="xsd:string" />
+            <xsd:element name="comCopiaPara" type="xsd:string" />
+            <xsd:element name="copiaOcultaPara" type="xsd:string" />
+            <xsd:element name="responderPara" type="xsd:string" />
+            <xsd:element name="enderecoResposta" type="xsd:string" />
+            <xsd:element name="identificadorSistema" type="xsd:string" />
+            <xsd:element name="tipoConteudo" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnviarEmailResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="codigoRetorno" type="xsd:int" />
+            <xsd:element name="mensagemRetorno" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </WL5G3N1:types>
+  <WL5G3N1:message name="EnviarEmailRequest">
+    <WL5G3N1:part name="Inparameters" element="WL5G3N2:EnviarEmailRequest" />
+  </WL5G3N1:message>
+  <WL5G3N1:message name="EnviarEmailResponse">
+    <WL5G3N1:part name="Outparameters" element="WL5G3N2:EnviarEmailResponse" />
+  </WL5G3N1:message>
+  <WL5G3N1:portType name="ServicoEmailPort">
+    <WL5G3N1:operation name="EnviarEmail">
+      <WL5G3N1:input message="WL5G3N2:EnviarEmailRequest" />
+      <WL5G3N1:output message="WL5G3N2:EnviarEmailResponse" />
+    </WL5G3N1:operation>
+  </WL5G3N1:portType>
+  <WL5G3N1:binding name="ServicoEmailBinding" type="WL5G3N2:ServicoEmailPort">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#Mtom.xml" />
+    </wsp:Policy>
+    <WL5G3N3:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N1:operation name="EnviarEmail">
+      <WL5G3N3:operation soapAction="http://www.example.org/NewWSDLFile/EnviarEmail" />
+      <WL5G3N1:input>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:input>
+      <WL5G3N1:output>
+        <WL5G3N3:body use="literal" />
+      </WL5G3N1:output>
+    </WL5G3N1:operation>
+  </WL5G3N1:binding>
+  <WL5G3N1:service name="ServicoEmail">
+    <WL5G3N1:port name="ServicoEmail" binding="WL5G3N2:ServicoEmailBinding">
+      <WL5G3N3:address location="http://10.1.100.26:8011/ServicoComunicacao/EnviarEmail" />
+    </WL5G3N1:port>
+  </WL5G3N1:service>
+</WL5G3N1:definitions>

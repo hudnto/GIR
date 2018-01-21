@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoGASC" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" />
+      <xsd:import schemaLocation="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GASC.Servico.Retornos" />
+      <xsd:import schemaLocation="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GASC.Servico.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicoGASC_ObterUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObterUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObterUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterUsuario_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q1:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarPerfisUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPerfisUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarPerfisUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPerfisUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarPerfisUsuario_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q2:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarDadosComplementaresUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDadosComplementaresUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarDadosComplementaresUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDadosComplementaresUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarDadosComplementaresUsuario_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q3:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarUsuariosPerfil_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuariosPerfil" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarUsuariosPerfil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuariosPerfilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarUsuariosPerfil_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q4:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarUsuariosPerfilSistema_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuariosPerfilSistema" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarUsuariosPerfilSistema_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuariosPerfilSistemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarUsuariosPerfilSistema_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q5:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarSistemas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSistemas" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarSistemas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSistemasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ListarSistemas_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q6:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterSistemaPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObterSistemaPorId" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterSistemaPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObterSistemaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterSistemaPorId_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q7:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterSistemaPorSigla_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObterSistemaPorSigla" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterSistemaPorSigla_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObterSistemaPorSiglaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_ObterSistemaPorSigla_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q8:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_AutenticarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_AutenticarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoGASC_AutenticarUsuario_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/GASC.Servico.Erros" name="detail" element="q9:ServicoException" />
+  </wsdl:message>
+  <wsdl:portType name="IServicoGASC">
+    <wsdl:operation name="ObterUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ObterUsuario" message="tns:IServicoGASC_ObterUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ObterUsuarioResponse" message="tns:IServicoGASC_ObterUsuario_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ObterUsuarioServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ObterUsuario_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPerfisUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ListarPerfisUsuario" message="tns:IServicoGASC_ListarPerfisUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ListarPerfisUsuarioResponse" message="tns:IServicoGASC_ListarPerfisUsuario_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ListarPerfisUsuarioServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ListarPerfisUsuario_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosComplementaresUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ListarDadosComplementaresUsuario" message="tns:IServicoGASC_ListarDadosComplementaresUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ListarDadosComplementaresUsuarioResponse" message="tns:IServicoGASC_ListarDadosComplementaresUsuario_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ListarDadosComplementaresUsuarioServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ListarDadosComplementaresUsuario_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuariosPerfil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ListarUsuariosPerfil" message="tns:IServicoGASC_ListarUsuariosPerfil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ListarUsuariosPerfilResponse" message="tns:IServicoGASC_ListarUsuariosPerfil_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ListarUsuariosPerfilServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ListarUsuariosPerfil_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuariosPerfilSistema">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ListarUsuariosPerfilSistema" message="tns:IServicoGASC_ListarUsuariosPerfilSistema_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ListarUsuariosPerfilSistemaResponse" message="tns:IServicoGASC_ListarUsuariosPerfilSistema_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ListarUsuariosPerfilSistemaServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ListarUsuariosPerfilSistema_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSistemas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ListarSistemas" message="tns:IServicoGASC_ListarSistemas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ListarSistemasResponse" message="tns:IServicoGASC_ListarSistemas_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ListarSistemasServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ListarSistemas_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterSistemaPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ObterSistemaPorId" message="tns:IServicoGASC_ObterSistemaPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ObterSistemaPorIdResponse" message="tns:IServicoGASC_ObterSistemaPorId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ObterSistemaPorIdServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ObterSistemaPorId_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterSistemaPorSigla">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/ObterSistemaPorSigla" message="tns:IServicoGASC_ObterSistemaPorSigla_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/ObterSistemaPorSiglaResponse" message="tns:IServicoGASC_ObterSistemaPorSigla_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/ObterSistemaPorSiglaServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_ObterSistemaPorSigla_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoGASC/AutenticarUsuario" message="tns:IServicoGASC_AutenticarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoGASC/AutenticarUsuarioResponse" message="tns:IServicoGASC_AutenticarUsuario_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicoGASC/AutenticarUsuarioServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoGASC_AutenticarUsuario_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicoGASC" type="tns:IServicoGASC">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObterUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ObterUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPerfisUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ListarPerfisUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosComplementaresUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ListarDadosComplementaresUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuariosPerfil">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ListarUsuariosPerfil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuariosPerfilSistema">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ListarUsuariosPerfilSistema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSistemas">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ListarSistemas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObterSistemaPorId">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ObterSistemaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObterSistemaPorSigla">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/ObterSistemaPorSigla" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicoGASC/AutenticarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicoExceptionFault">
+        <soap:fault use="literal" name="ServicoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoGASC">
+    <wsdl:port name="BasicHttpBinding_IServicoGASC" binding="tns:BasicHttpBinding_IServicoGASC">
+      <soap:address location="http://webdev002:5323/GASC/ServicoGASC.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

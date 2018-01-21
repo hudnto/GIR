@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cassi.com.br/v1/retornos/Retorno" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/v1/retornos/Retorno" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Retorno">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Retorno" nillable="true" type="tns:Retorno" />
+</xs:schema>

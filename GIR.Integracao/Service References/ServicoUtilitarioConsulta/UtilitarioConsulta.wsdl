@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N1="http://ws.cassi.com.br/v1/UtilitarioConsulta/" name="UtilitarioConsulta" targetNamespace="http://ws.cassi.com.br/v1/UtilitarioConsulta/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:tns="http://ws.cassi.com.br/v1/UtilitarioConsulta/" xmlns:pref="http://ws.cassi.com.br/v1/Municipio/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:Q1="http://schemas.datacontract.org/2004/07/AdesaoWeb.Servico.Models" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ws.cassi.com.br/v1/UtilitarioConsulta/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:include schemaLocation="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?SCHEMA%2FServicoUtilitarioConsulta%2FXsd%2FProxy%2FUnidadeEndereco" />
+      <xsd:element name="listarUnidadesCassiPorUF" type="tns:ListarUnidadesCassiPorUf" />
+      <xsd:element name="ListarUnidadesCassiPorUFResponse" type="tns:ListarUnidadesCassiPorUfResponse" />
+      <xsd:complexType name="ListarUnidadesCassiPorUf">
+        <xsd:sequence>
+          <xsd:element name="ufEstado" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListarUnidadesCassiPorUfResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="retornoListaUnidades" type="tns:retornoListaUnidadesCassi" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="retornoListaUnidadesCassi">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="unidade" type="tns:UnidadeEndereco" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarEstados" type="tns:ListarEstados" />
+      <xsd:element name="listarEstadosResponse" type="tns:ListarEstadosResponse" />
+      <xsd:element name="listarMunicipiosPorEstado" type="tns:ListarMunicipiosPorUf" />
+      <xsd:element name="listarMunicipiosPorEstadoResponse" type="tns:ListarMunicipiosPorUfResponse" />
+      <xsd:complexType name="Estado">
+        <xsd:sequence>
+          <xsd:element name="idEstado" type="xsd:int" />
+          <xsd:element name="sigla" type="xsd:string" />
+          <xsd:element name="nome" type="xsd:string" />
+          <xsd:element name="idPais" type="xsd:int" />
+          <xsd:element name="codigoTiss" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListarEstados">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="ListarEstadosResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="retornoListaEstados" type="tns:Estado" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListarMunicipiosPorUf">
+        <xsd:sequence>
+          <xsd:element name="idEstado" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListarMunicipiosPorUfResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="retornoListaMunicipios" type="tns:Municipio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarMunicipiosPorEstadoFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="codigo" type="xsd:int" />
+            <xsd:element name="descricao" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Municipio" mixed="true">
+        <xsd:sequence>
+          <xsd:element name="cep" nillable="true" type="xsd:string" />
+          <xsd:element name="idRegiao" nillable="true" type="xsd:int" />
+          <xsd:element name="idRegiaoSaude" nillable="true" type="xsd:string" />
+          <xsd:element name="nome" nillable="true" type="xsd:string" />
+          <xsd:element name="idMunicipio" nillable="true" type="xsd:int" />
+          <xsd:element name="estado" type="tns:Estado" />
+          <xsd:element name="codigoIbgeMunicipio" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="obterMunicipio" type="tns:ObterMunicipio" />
+      <xsd:element name="obterMunicipioResponse" type="tns:ObterMunicipioResponse" />
+      <xsd:complexType name="ObterMunicipio">
+        <xsd:sequence>
+          <xsd:element name="idMunicipio" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ObterMunicipioResponse">
+        <xsd:sequence>
+          <xsd:element name="municipio" type="tns:Municipio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="obterEstado" type="tns:ObterEstado" />
+      <xsd:element name="obterEstadoResponse" type="tns:ObterEstadoResponse" />
+      <xsd:complexType name="ObterEstado">
+        <xsd:sequence>
+          <xsd:element name="idEstado" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ObterEstadoResponse">
+        <xsd:sequence>
+          <xsd:element name="estado" type="tns:Estado" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="obterMunicipioPorIbgeEstado" type="tns:ObterMunicipioPorIbgeEstado" />
+      <xsd:element name="obterMunicipioPorIbgeEstadoResponse" type="tns:ObterMunicipioPorIbgeEstadoResponse" />
+      <xsd:complexType name="ObterMunicipioPorIbgeEstado">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="codigoIbge" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="nomeMunicipio" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ObterMunicipioPorIbgeEstadoResponse">
+        <xsd:sequence>
+          <xsd:element name="retornoMunicipio" type="tns:Municipio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="obterMunicipioPorIbgeEstadoFault" type="tns:ObterMunicipioPorIbgeEstadoFault" />
+      <xsd:complexType name="ObterMunicipioPorIbgeEstadoFault">
+        <xsd:sequence>
+          <xsd:element name="codigo" type="xsd:string" />
+          <xsd:element name="mensagem" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarEspecializacoes" type="tns:ListarEspecializacoes" />
+      <xsd:element name="listarEspecializacoesResponse" type="tns:ListarEspecializacoesResponse" />
+      <xsd:complexType name="Especializacao">
+        <xsd:sequence>
+          <xsd:element name="idEspecializacao" type="xsd:int" />
+          <xsd:element name="descricao" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListarEspecializacoes" />
+      <xsd:complexType name="ListarEspecializacoesResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="retornoEspecializacao" type="tns:Especializacao" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarFiliaisCassi" type="tns:listarFiliaisCassi" />
+      <xsd:element name="listarFiliaisCassiResponse" type="tns:listarFiliaisCassiResponse" />
+      <xsd:element name="listarFiliaisCassiFault" type="tns:listarFiliaisCassiFault" />
+      <xsd:complexType name="listarFiliaisCassi" />
+      <xsd:complexType name="listarFiliaisCassiResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="retornoFiliaisCassi" type="tns:Filial" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="listarFiliaisCassiFault" />
+      <xsd:complexType name="Filial">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" name="idFilial" type="xsd:int" />
+          <xsd:element maxOccurs="1" name="Nome" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="obterEnderecoPorCep" type="tns:obterEnderecoPorCep" />
+      <xsd:element name="obterEnderecoPorCepResponse" type="tns:obterEnderecoPorCepResponse" />
+      <xsd:element name="obterEnderecoPorCepFault" type="tns:obterEnderecoPorCepFault" />
+      <xsd:complexType name="obterEnderecoPorCep">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="cep" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="obterEnderecoPorCepFault" />
+      <xsd:complexType name="obterEnderecoPorCepResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="RetornoObterEnderecoPorCep" type="tns:Endereco" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarEstadoCivil" type="tns:listarEstadoCivil" />
+      <xsd:element name="listarEstadoCivilResponse" type="tns:listarEstadoCivilResponse" />
+      <xsd:element name="listarEstadoCivilFault" type="tns:listarEstadoCivilFault" />
+      <xsd:complexType name="listarEstadoCivil" />
+      <xsd:complexType name="listarEstadoCivilFault" />
+      <xsd:complexType name="listarEstadoCivilResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="retornoListarEstadoCivil" type="tns:EstadoCivil" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EstadoCivil">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="idEstadoCivil" type="xsd:int" />
+          <xsd:element minOccurs="0" name="codigo" type="xsd:int" />
+          <xsd:element minOccurs="0" name="codigoArh" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descricao" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarTipoNaturezaDocumento">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="listarTipoNaturezaDocumentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="retornoListarTipoNaturezaDocumento" type="tns:NaturezaDocumento" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="listarTipoNaturezaDocumentoFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="listarTipoNaturezaDocumentoFault" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="NaturezaDocumento">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="idNaturezaDocumento" type="xsd:int" />
+          <xsd:element minOccurs="1" name="descricao" type="xsd:string" />
+          <xsd:element minOccurs="1" name="codigo" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarCbos">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="listarCbosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="retornoListarCbos" type="tns:Cbo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="listarCbosFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="listarCbosFault" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Cbo">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="idCbo" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="descricao" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="listarUnidadesCassiPorUFRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarUnidadesCassiPorUF" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarUnidadesCassiPorUFResponse1">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:ListarUnidadesCassiPorUFResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarEstadosRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarEstados" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarEstadosResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarEstadosResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarMunicipiosPorEstadoRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarMunicipiosPorEstado" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarMunicipiosPorEstadoResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarMunicipiosPorEstadoResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarMunicipiosPorEstadoFault">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarMunicipiosPorEstadoFault" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterMunicipioRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterMunicipio" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterMunicipioResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterMunicipioResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterEstadoRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterEstado" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterEstadoResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterEstadoResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterMunicipioPorIbgeEstadoRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterMunicipioPorIbgeEstado" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterMunicipioPorIbgeEstadoResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterMunicipioPorIbgeEstadoResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterMunicipioPorIbgeEstadoFault">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterMunicipioPorIbgeEstadoFault" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarEspecializacoesRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarEspecializacoes" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarEspecializacoesResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarEspecializacoesResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarFiliaisCassiRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarFiliaisCassi" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarFiliaisCassiResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarFiliaisCassiResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarFiliaisCassiFault">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarFiliaisCassiFault" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterEnderecoPorCepRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterEnderecoPorCep" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterEnderecoPorCepResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterEnderecoPorCepResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="obterEnderecoPorCepFault">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:obterEnderecoPorCepFault" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarEstadoCivilRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarEstadoCivil" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarEstadoCivilResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarEstadoCivilResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarEstadoCivilFault">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarEstadoCivilFault" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarTipoNaturezaDocumentoRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarTipoNaturezaDocumento" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarTipoNaturezaDocumentoResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarTipoNaturezaDocumentoResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarTipoNaturezaDocumentoFault">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarTipoNaturezaDocumentoFault" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarCbosRequest">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarCbos" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarCbosResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarCbosResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="listarCbosFault">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:listarCbosFault" />
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="UtilitarioConsulta">
+    <WL5G3N0:operation name="listarUnidadesCassiPorUF">
+      <WL5G3N0:input message="WL5G3N1:listarUnidadesCassiPorUFRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarUnidadesCassiPorUFResponse1" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarEstados">
+      <WL5G3N0:input message="WL5G3N1:listarEstadosRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarEstadosResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarMunicipiosPorEstado">
+      <WL5G3N0:input message="WL5G3N1:listarMunicipiosPorEstadoRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarMunicipiosPorEstadoResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterMunicipio">
+      <WL5G3N0:input message="WL5G3N1:obterMunicipioRequest" />
+      <WL5G3N0:output message="WL5G3N1:obterMunicipioResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterEstado">
+      <WL5G3N0:input message="WL5G3N1:obterEstadoRequest" />
+      <WL5G3N0:output message="WL5G3N1:obterEstadoResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterMunicipioPorIbgeEstado">
+      <WL5G3N0:input message="WL5G3N1:obterMunicipioPorIbgeEstadoRequest" />
+      <WL5G3N0:output message="WL5G3N1:obterMunicipioPorIbgeEstadoResponse" />
+      <WL5G3N0:fault name="fault" message="WL5G3N1:obterMunicipioPorIbgeEstadoFault" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarEspecializacoes">
+      <WL5G3N0:input message="WL5G3N1:listarEspecializacoesRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarEspecializacoesResponse" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarFiliaisCassi">
+      <WL5G3N0:input message="WL5G3N1:listarFiliaisCassiRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarFiliaisCassiResponse" />
+      <WL5G3N0:fault name="fault" message="WL5G3N1:listarFiliaisCassiFault" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterEnderecoPorCep">
+      <WL5G3N0:input message="WL5G3N1:obterEnderecoPorCepRequest" />
+      <WL5G3N0:output message="WL5G3N1:obterEnderecoPorCepResponse" />
+      <WL5G3N0:fault name="fault" message="WL5G3N1:obterEnderecoPorCepFault" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarEstadoCivil">
+      <WL5G3N0:input message="WL5G3N1:listarEstadoCivilRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarEstadoCivilResponse" />
+      <WL5G3N0:fault name="fault" message="WL5G3N1:listarEstadoCivilFault" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarTipoNaturezaDocumento">
+      <WL5G3N0:input message="WL5G3N1:listarTipoNaturezaDocumentoRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarTipoNaturezaDocumentoResponse" />
+      <WL5G3N0:fault name="fault" message="WL5G3N1:listarTipoNaturezaDocumentoFault" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarCbos">
+      <WL5G3N0:input message="WL5G3N1:listarCbosRequest" />
+      <WL5G3N0:output message="WL5G3N1:listarCbosResponse" />
+      <WL5G3N0:fault name="fault" message="WL5G3N1:listarCbosFault" />
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="UtilitarioConsultaSOAP" type="WL5G3N1:UtilitarioConsulta">
+    <WL5G3N2:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N0:operation name="listarUnidadesCassiPorUF">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarUnidadesCassiPorUF" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarEstados">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarEstados" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarMunicipiosPorEstado">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarMunicipiosPorEstado" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterMunicipio">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/obterMunicipio" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterEstado">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/obterEstado" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterMunicipioPorIbgeEstado">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/obterMunicipioPorIbgeEstado" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="fault">
+        <WL5G3N2:fault use="literal" name="fault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarEspecializacoes">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarEspecializacoes" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarFiliaisCassi">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarFiliaisCassi" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="fault">
+        <WL5G3N2:fault use="literal" name="fault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="obterEnderecoPorCep">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/obterEnderecoPorCep" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="fault">
+        <WL5G3N2:fault use="literal" name="fault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarEstadoCivil">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarEstadoCivil" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="fault">
+        <WL5G3N2:fault use="literal" name="fault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarTipoNaturezaDocumento">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarTipoNaturezaDocumento" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="fault">
+        <WL5G3N2:fault use="literal" name="fault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="listarCbos">
+      <WL5G3N2:operation soapAction="http://ws.cassi.com.br/v1/UtilitarioConsulta/listarCbos" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="fault">
+        <WL5G3N2:fault use="literal" name="fault" namespace="" />
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="UtilitarioConsultaSOAPQSService">
+    <WL5G3N0:port name="UtilitarioConsultaSOAPQSPort" binding="WL5G3N1:UtilitarioConsultaSOAP">
+      <WL5G3N2:address location="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta" />
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

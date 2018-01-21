@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="71917db4-a531-49d8-aaba-d85fb643bd94" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicoUnidadeOrganizacional.xsd" MetadataType="Schema" ID="93ef34bc-baf8-44e8-b618-0de9bc6bb0df" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional.disco" MetadataType="Disco" ID="92eaa52c-2112-470c-b232-01dbbaf88799" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?disco" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional.wsdl" MetadataType="Wsdl" ID="d17dc49e-ac9e-4a37-aec3-4bd292363cac" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional1.xsd" MetadataType="Schema" ID="4ce9bd1d-bdc9-458b-94fe-f01d0309df3b" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional2.xsd" MetadataType="Schema" ID="30aafcca-9bd3-40fb-b4a9-35f79b6fb53f" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional3.xsd" MetadataType="Schema" ID="769bbd17-9eb8-4a39-b86e-7318eaedafd4" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd7" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional4.xsd" MetadataType="Schema" ID="c0c50fdb-fa0e-4e44-a3ed-3b12261e1996" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional1.wsdl" MetadataType="Wsdl" ID="3a78d338-9347-4eac-8ab3-ab2a6843f300" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?wsdl" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional5.xsd" MetadataType="Schema" ID="b7ff622e-fd2b-4f39-8c41-a71f47688700" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd5" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional6.xsd" MetadataType="Schema" ID="e3ca420e-92f4-4114-8029-238205b1dc22" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicoUnidadeOrganizacional7.xsd" MetadataType="Schema" ID="da376e28-7e20-492d-8fc0-ec11ea87e546" SourceId="1" SourceUrl="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

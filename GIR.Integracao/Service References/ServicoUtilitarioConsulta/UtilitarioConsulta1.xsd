@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://ws.cassi.com.br/v1/UtilitarioConsulta/" xmlns:pref="http://ws.cassi.com.br/v1/Unidade/" xmlns:pref1="http://ws.cassi.com.br/v1/Endereco/" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/v1/UtilitarioConsulta/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?SCHEMA%2FServicoUtilitarioConsulta%2FXsd%2FProxy%2FUnidade" namespace="http://ws.cassi.com.br/v1/Unidade/" />
+  <import schemaLocation="http://10.1.100.26:8011/ServicoUtilitarioConsulta/Proxy/UtilitarioConsulta?SCHEMA%2FServicoUtilitarioConsulta%2FXsd%2FProxy%2FEndereco" namespace="http://ws.cassi.com.br/v1/Endereco/" />
+  <complexType name="Unidade">
+    <sequence>
+      <element minOccurs="0" ref="pref:id" />
+      <element minOccurs="0" ref="pref:codigo" />
+      <element minOccurs="0" ref="pref:cnpj" />
+      <element minOccurs="0" ref="pref:telefone" />
+      <element minOccurs="0" ref="pref:nome" />
+    </sequence>
+  </complexType>
+  <complexType name="Endereco">
+    <sequence>
+      <element minOccurs="0" ref="pref1:bairro" />
+      <element minOccurs="0" ref="pref1:cep" />
+      <element minOccurs="0" ref="pref1:codigoIbgeMunicipio" />
+      <element minOccurs="0" ref="pref1:complemento" />
+      <element minOccurs="0" ref="pref1:handleEstado" />
+      <element minOccurs="0" ref="pref1:handleMunicipio" />
+      <element minOccurs="0" ref="pref1:logradouro" />
+      <element minOccurs="0" ref="pref1:nomeEstado" />
+      <element minOccurs="0" ref="pref1:nomeMunicipio" />
+      <element minOccurs="0" ref="pref1:numero" />
+      <element minOccurs="0" ref="pref1:siglaEstado" />
+    </sequence>
+  </complexType>
+  <complexType name="UnidadeEndereco">
+    <sequence>
+      <element name="unidade" type="tns:Unidade" />
+      <element name="endereco" type="tns:Endereco" />
+    </sequence>
+  </complexType>
+</schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/v2/servicos/ServicoColaborador" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1066336335" namespace="http://ws.cassi.com.br/v1/retornos/RetornoColaborador" />
+  <xs:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1895795146" namespace="http://ws.cassi.com.br/v1/retornos/RetornoListaColaborador" />
+  <xs:element name="ObterColaborador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginColaborador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterColaboradorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://ws.cassi.com.br/v1/retornos/RetornoColaborador" minOccurs="0" name="ObterColaboradorResult" nillable="true" type="q1:RetornoColaborador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterFuncionarioPorMatricula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="matriculaFuncionario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterFuncionarioPorMatriculaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://ws.cassi.com.br/v1/retornos/RetornoColaborador" minOccurs="0" name="ObterFuncionarioPorMatriculaResult" nillable="true" type="q2:RetornoColaborador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterColaboradorPorCPF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cpfColaborador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObterColaboradorPorCPFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://ws.cassi.com.br/v1/retornos/RetornoColaborador" minOccurs="0" name="ObterColaboradorPorCPFResult" nillable="true" type="q3:RetornoColaborador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarColaborador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomeColaborador" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="somenteAtivos" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarColaboradorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://ws.cassi.com.br/v1/retornos/RetornoListaColaborador" minOccurs="0" name="ListarColaboradorResult" nillable="true" type="q4:RetornoListaColaborador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

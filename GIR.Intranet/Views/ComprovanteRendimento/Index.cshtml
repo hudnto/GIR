@@ -1,0 +1,115 @@
+﻿@model GIR.Intranet.Models.VisualizaComprovanteVM
+@using GIR.Core.Infraestrutura.Extensoes
+@using GIR.Core.Negocio.Enum
+@using GIR.Intranet.Infraestructure.Helpers
+@using System.Web.Mvc.Html
+
+@{
+    var actionName = (string)ViewContext.Controller.ValueProvider.GetValue("action").RawValue == "Analisar" ? "Analisar Comprovantes de Rendimento DIRF" : "Comprovantes de Rendimento DIRF";
+    ViewBag.Title = actionName;
+}
+@using (Ajax.BeginForm("Visualizar", "ComprovanteRendimento", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    OnComplete = "Informe.Consulta.BuscaPaginada"
+}))
+{
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div>
+            <h3>@ViewBag.Title</h3>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.Codigo, new { @class = "control-label" })
+                    @Html.TextBoxFor(vm => vm.Codigo, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.Descricao, new { @class = "control-label" })
+                    @Html.TextBoxFor(vm => vm.Descricao, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.AnoExercicio, new { @class = "control-label" })
+                    @Html.TextBoxFor(vm => vm.AnoExercicio, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.AnoCalendario, new { @class = "control-label" })
+                    @Html.TextBoxFor(vm => vm.AnoCalendario, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                    @Html.RadioButtonFor(vm => vm.TipoContribuinte, TipoContribuinte.FuncionarioCassi, new { disabled = "true" })
+                    @Html.Label(TipoContribuinte.FuncionarioCassi.GetDescription(), new { @class = "control-label" })
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                    @Html.RadioButtonFor(vm => vm.TipoContribuinte, TipoContribuinte.PrestadorFornecedor, new { disabled = "true" })
+                    @Html.Label(TipoContribuinte.PrestadorFornecedor.GetDescription(), new { @class = "control-label" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.CpfCnpj, new { @class = "control-label" })
+                    @Html.DropDownListCpfcnpjFor(vm => vm.CpfCnpj, new { @class = "chosen-select chosen-single form-control cpfCnpj" })
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.Uf, new { @class = "control-label" })
+                    @Html.DropDownListUfsFor(vm => vm.Uf, new { @class = "chosen-select chosen-single form-control" })
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.UnidadeOrganizacional, new { @class = "control-label" })
+                    @Html.DropDownListUnidadeOrganicionalFor(vm => vm.UnidadeOrganizacional, new { @class = "chosen-select chosen-single form-control" })
+                </div>
+            </div>
+            @*<div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(vm => vm.UnidadeOrganizacionalDescr, new { @class = "control-label" })
+                    <select id="UnidadeDescr" name="UnidadeDescr" class="form-control chosen-select">
+                        <option value=""></option>
+                    </select>
+              
+                  </div>
+            </div>*@
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-12 text-right">
+                @Html.Raw(Html.ActionLink("[img]", "Visualizar", "ComprovanteRendimento", new { Id = "pesquisar" },
+                    new { @class = "btn btn-primary" }).ToHtmlString().Replace("[img]", "<span class=\"fa fa-search\"></span> Pesquisar"))
+
+                @if ((string)ViewContext.Controller.ValueProvider.GetValue("action").RawValue == "Analisar" &&
+                    Model.SituacaoProcessamento == TipoSituacao.Processado)
+                {
+                    @Html.Raw(Html.ActionLink("[img]", "AprovarInforme", "ComprovanteRendimento", new { Id = "btnAprovarInforme" },
+                        new { @class = "btn btn-success" }).ToHtmlString().Replace("[img]", "<span class=\"fa fa-check\"></span> Aprovar"))
+                }
+            </div>
+        </div>
+    </div>
+}
+<div class="col-xs-12 col-sm-12 col-md-12">
+    <table id="tabelaConsulta"></table>
+</div>
+
+@RazorHelpers.ModalConfirmacao("sucesso")
+
+@section scripts {
+    <script src="~/Content/Scripts/ComprovanteRendimento/Index.js"></script>
+    <script src="~/Content/Scripts/ComprovanteRendimento/Analisar.js"></script>
+}

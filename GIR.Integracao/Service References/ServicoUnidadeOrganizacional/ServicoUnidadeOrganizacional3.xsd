@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cassi.com.br/v1/modelos/EstruturaOrganizacional" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/v1/modelos/EstruturaOrganizacional" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd4" namespace="http://ws.cassi.com.br/v1/modelos/UnidadeOrganizacional" />
+  <xs:complexType name="EstruturaOrganizacional">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://ws.cassi.com.br/v1/modelos/UnidadeOrganizacional" base="q1:UnidadeOrganizacional">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UnidadeOrganizacionalSuperior" nillable="true" type="q1:UnidadeOrganizacional" />
+          <xs:element minOccurs="0" name="UnidadesOrganizacionaisSubordinadas" nillable="true" type="tns:ArrayOfEstruturaOrganizacional" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EstruturaOrganizacional" nillable="true" type="tns:EstruturaOrganizacional" />
+  <xs:complexType name="ArrayOfEstruturaOrganizacional">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstruturaOrganizacional" nillable="true" type="tns:EstruturaOrganizacional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstruturaOrganizacional" nillable="true" type="tns:ArrayOfEstruturaOrganizacional" />
+</xs:schema>

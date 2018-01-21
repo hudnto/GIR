@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional/Imports">
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd0" namespace="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional" />
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Servico.Erros" />
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd2" namespace="http://ws.cassi.com.br/v1/retornos/RetornoUnidadeOrganizacional" />
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd3" namespace="http://ws.cassi.com.br/v1/retornos/Retorno" />
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd4" namespace="http://ws.cassi.com.br/v1/modelos/UnidadeOrganizacional" />
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd6" namespace="http://ws.cassi.com.br/v1/retornos/RetornoEstruturaOrganizacional" />
+      <xsd:import schemaLocation="http://webdev002:5323/ServicoUnidadeOrganizacional/ServicoUnidadeOrganizacional.svc?xsd=xsd7" namespace="http://ws.cassi.com.br/v1/modelos/EstruturaOrganizacional" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicoUnidadeOrganizacional_ObterUnidadeOrganizacional_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObterUnidadeOrganizacional" />
+  </wsdl:message>
+  <wsdl:message name="IServicoUnidadeOrganizacional_ObterUnidadeOrganizacional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObterUnidadeOrganizacionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoUnidadeOrganizacional_ObterUnidadeOrganizacional_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Servico.Erros" name="detail" element="q1:ServicoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicoUnidadeOrganizacional_ObterEstruturaOrganizacional_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObterEstruturaOrganizacional" />
+  </wsdl:message>
+  <wsdl:message name="IServicoUnidadeOrganizacional_ObterEstruturaOrganizacional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObterEstruturaOrganizacionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoUnidadeOrganizacional_ObterEstruturaOrganizacional_ServicoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Servico.Erros" name="detail" element="q2:ServicoException" />
+  </wsdl:message>
+  <wsdl:portType name="IServicoUnidadeOrganizacional">
+    <wsdl:operation name="ObterUnidadeOrganizacional">
+      <wsdl:input wsaw:Action="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional/IServicoUnidadeOrganizacional/ObterUnidadeOrganizacional" message="tns:IServicoUnidadeOrganizacional_ObterUnidadeOrganizacional_InputMessage" />
+      <wsdl:output wsaw:Action="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional/IServicoUnidadeOrganizacional/ObterUnidadeOrganizacionalResponse" message="tns:IServicoUnidadeOrganizacional_ObterUnidadeOrganizacional_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional/IServicoUnidadeOrganizacional/ObterUnidadeOrganizacionalServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoUnidadeOrganizacional_ObterUnidadeOrganizacional_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterEstruturaOrganizacional">
+      <wsdl:input wsaw:Action="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional/IServicoUnidadeOrganizacional/ObterEstruturaOrganizacional" message="tns:IServicoUnidadeOrganizacional_ObterEstruturaOrganizacional_InputMessage" />
+      <wsdl:output wsaw:Action="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional/IServicoUnidadeOrganizacional/ObterEstruturaOrganizacionalResponse" message="tns:IServicoUnidadeOrganizacional_ObterEstruturaOrganizacional_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ws.cassi.com.br/v1/servicos/ServicoUnidadeOrganizacional/IServicoUnidadeOrganizacional/ObterEstruturaOrganizacionalServicoExceptionFault" name="ServicoExceptionFault" message="tns:IServicoUnidadeOrganizacional_ObterEstruturaOrganizacional_ServicoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+      <style>
+         p {
+         display: block;
+         -webkit-margin-before: 1em;
+         -webkit-margin-after: 1em;
+         -webkit-margin-start: 0;
+         -webkit-margin-end: 0;
+         margin: 0 0 10px;
+         }
+         body {
+         font-family: 'roboto', sans-serif;
+         color: #333;
+         margin-bottom: 100px;
+         overflow-x: hidden;
+         padding-top: 105px;
+         line-height: 20px;
+         font-size: 14px;
+         }
+         .ans {
+         padding: 1px 3px 1px 3px;
+         border: 1px double #fff;
+         background-color: #000;
+         float: left;
+         font-size: 0.7em;
+         font-weight: bold;
+         color: #fff;
+         margin-top: 3px;
+         }
+         .right{float: right
+         }
+      </style>
+      <title>GIR - Notificação Prestador de serviço</title>
+   </head>
+   <body>
+      <p class="right"> Brasília-DF, {DATA_COMPLETA}</p>
+      <p> Caro(a) {NOME}</p>
+      <br />
+      <p>	
+         Segue comprovante de rendimentos {ANO_EXERCICIO}, referente ano calendário {ANO_CALENDARIO}:    
+      </p>
+      </br>
+      <p>
+         <a href="{LINKCOMPROVANTE}">Comprovante do Imposto de Renda</a>
+      </p>
+	  <p>
+		Informamos que o documento está disponível também em www.cassi.com.br, página Prestador. Depois de fazer login no me-nu à esquerda, clique no botão Demonstrativo de IR.
+	  </p>
+      <p>
+         Caso ocorra problema na visualização do comprovante, desbloqueie o pop-up ou clique na barra superior e na opção Baixar Arquivo.
+      </p>
+      <p>
+         Atenciosamente,
+      </p>
+      <p>
+         <b>CASSI - Caixa de Assistência dos Funcionários do Banco do Brasil</b>
+      </p>
+      <p>
+         MENSAGEM ENVIADA DE FORMA AUTOMATICA. NÃO RESPONDER ESSE E-MAIL
+      </p>
+      <img src=""/>
+      <div class="ans right">ANS-nº 34665-9</div>
+   </body>
+</html>

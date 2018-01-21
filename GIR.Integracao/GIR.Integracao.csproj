@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF4A7F22-26C7-463E-99CC-0CD45B67965B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GIR.Integracao</RootNamespace>
+    <AssemblyName>GIR.Integracao</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fakes\Interace\IServicoColaborador.cs" />
+    <Compile Include="Fakes\Interace\IServicoEmail.cs" />
+    <Compile Include="Fakes\Interace\IServicoGasc.cs" />
+    <Compile Include="Fakes\Interace\IServicoFornecedor.cs" />
+    <Compile Include="Fakes\Interace\IServicoComunicacao.cs" />
+    <Compile Include="Fakes\Interace\IServicoUnidadeOrganizacional.cs" />
+    <Compile Include="Fakes\ServicoColaborador.cs" />
+    <Compile Include="Fakes\ServicoComunicacao.cs" />
+    <Compile Include="Fakes\ServicoEmailCassi.cs" />
+    <Compile Include="Fakes\ServicoEmailGmail.cs" />
+    <Compile Include="Fakes\ServicoGasc.cs" />
+    <Compile Include="Fakes\ServicoFornecedor.cs" />
+    <Compile Include="Fakes\ServicoUnidadeOrganizacional.cs" />
+    <Compile Include="IUtilitarioConsulta.cs" />
+    <Compile Include="Model\UnidadeOrganizacional.cs" />
+    <Compile Include="Model\Colaborador.cs" />
+    <Compile Include="Model\EstraturaEmail.cs" />
+    <Compile Include="Model\PerfilUsuario.cs" />
+    <Compile Include="Model\Uf.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServicoColaborador\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoComunicacao\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoFornecedor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoGASC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoUnidadeOrganizacional\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicoUtilitarioConsulta\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UtilitarioConsulta.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador.wsdl" />
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\ConsultaColaborador7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoColaborador\GIR.Integracao.ServicoColaborador.RetornoColaborador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoColaborador\GIR.Integracao.ServicoColaborador.RetornoListaColaborador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoColaborador\ServicoColaborador2.wsdl" />
+    <None Include="Service References\ServicoComunicacao\GIR.Integracao.ServicoComunicacao.EnviarEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoComunicacao\NewWSDLFile.wsdl" />
+    <None Include="Service References\ServicoFornecedor\Consultafornecedor.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoFornecedor\Consultafornecedor1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoFornecedor\GIR.Integracao.ServicoFornecedor.fornecedor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoFornecedor\ServicoConsultaFornecedor.wsdl" />
+    <None Include="Service References\ServicoGASC\GIR.Integracao.ServicoGASC.RetornoDadosComplementaresUsuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoGASC\GIR.Integracao.ServicoGASC.RetornoPerfisUsuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoGASC\GIR.Integracao.ServicoGASC.RetornoSistema.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoGASC\GIR.Integracao.ServicoGASC.RetornoSistemas.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoGASC\GIR.Integracao.ServicoGASC.RetornoUsuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoGASC\GIR.Integracao.ServicoGASC.RetornoUsuarios.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoGASC\ServicoGASC.wsdl" />
+    <None Include="Service References\ServicoGASC\ServicoGASC.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoGASC\ServicoGASC1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoGASC\ServicoGASC2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoGASC\ServicoGASC3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoGASC\ServicoGASC4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\GIR.Integracao.ServicoUnidadeOrganizacional.RetornoEstruturaOrganizacional.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\GIR.Integracao.ServicoUnidadeOrganizacional.RetornoUnidadeOrganizacional.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional.wsdl" />
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional1.wsdl" />
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.Cbo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.Endereco.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.Especializacao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.Estado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.EstadoCivil.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.Filial.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.Municipio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.NaturezaDocumento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\GIR.Integracao.ServicoUtilitarioConsulta.retornoListaUnidadesCassi.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\UtilitarioConsulta.wsdl" />
+    <None Include="Service References\ServicoUtilitarioConsulta\UtilitarioConsulta.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\UtilitarioConsulta1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoUtilitarioConsulta\UtilitarioConsulta2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicoColaborador\" />
+    <WCFMetadataStorage Include="Service References\ServicoComunicacao\" />
+    <WCFMetadataStorage Include="Service References\ServicoFornecedor\" />
+    <WCFMetadataStorage Include="Service References\ServicoGASC\" />
+    <WCFMetadataStorage Include="Service References\ServicoUnidadeOrganizacional\" />
+    <WCFMetadataStorage Include="Service References\ServicoUtilitarioConsulta\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoGASC\ServicoGASC.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoGASC\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoGASC\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoGASC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoUtilitarioConsulta\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoUtilitarioConsulta\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoUtilitarioConsulta\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoComunicacao\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoComunicacao\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoComunicacao\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoUnidadeOrganizacional\ServicoUnidadeOrganizacional.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoUnidadeOrganizacional\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoUnidadeOrganizacional\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoUnidadeOrganizacional\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoColaborador\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoColaborador\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoColaborador\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoFornecedor\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoFornecedor\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoFornecedor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

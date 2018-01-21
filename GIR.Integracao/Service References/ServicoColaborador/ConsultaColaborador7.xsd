@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cassi.com.br/v1/retornos/RetornoColaborador" elementFormDefault="qualified" targetNamespace="http://ws.cassi.com.br/v1/retornos/RetornoColaborador" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_319867059" namespace="http://ws.cassi.com.br/v2/modelos/Colaborador" />
+  <xs:import schemaLocation="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-373234638" namespace="http://ws.cassi.com.br/v1/retornos/Retorno" />
+  <xs:complexType name="RetornoColaborador">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://ws.cassi.com.br/v1/retornos/Retorno" base="q1:Retorno">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://ws.cassi.com.br/v2/modelos/Colaborador" minOccurs="0" name="Colaborador" nillable="true" type="q2:Colaborador" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RetornoColaborador" nillable="true" type="tns:RetornoColaborador" />
+</xs:schema>

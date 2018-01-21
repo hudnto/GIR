@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c17bb58f-f282-4677-9393-16df7461f85f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://webdev002:5323/GASC/ServicoGASC.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicoGASC.disco" MetadataType="Disco" ID="54d74fb4-ad43-4ba0-a88f-bf39b5054b85" SourceId="1" SourceUrl="http://webdev002:5323/GASC/ServicoGASC.svc?disco" />
+    <MetadataFile FileName="ServicoGASC.xsd" MetadataType="Schema" ID="9e5dbad5-fb1e-4271-960b-30fa6bb3d95c" SourceId="1" SourceUrl="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicoGASC1.xsd" MetadataType="Schema" ID="07ebb76f-096f-4b60-803e-d86005484122" SourceId="1" SourceUrl="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicoGASC2.xsd" MetadataType="Schema" ID="6d5c09fa-2d72-47e8-a091-e6e3e45371b8" SourceId="1" SourceUrl="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicoGASC3.xsd" MetadataType="Schema" ID="f80af214-75c1-484d-814b-aa324591d013" SourceId="1" SourceUrl="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicoGASC.wsdl" MetadataType="Wsdl" ID="5d691624-bfc9-457b-b1a1-9257455b081d" SourceId="1" SourceUrl="http://webdev002:5323/GASC/ServicoGASC.svc?wsdl" />
+    <MetadataFile FileName="ServicoGASC4.xsd" MetadataType="Schema" ID="a0368367-0efa-48cb-93c1-0339165001c3" SourceId="1" SourceUrl="http://webdev002:5323/GASC/ServicoGASC.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

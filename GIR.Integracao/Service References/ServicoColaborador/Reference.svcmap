@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="09bb69a3-9ca7-45ad-8fc4-ab58d8a70f91" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ConsultaColaborador.xsd" MetadataType="Schema" ID="42688603-5862-4e4f-be00-ad4642acfdd6" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1759438032" />
+    <MetadataFile FileName="ConsultaColaborador1.xsd" MetadataType="Schema" ID="13c04c7e-c8d9-4b33-98a5-d70a4a23a047" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1895795146" />
+    <MetadataFile FileName="ConsultaColaborador2.xsd" MetadataType="Schema" ID="bbaa4271-4bf8-4a3b-ab97-553e35c28b23" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-373234638" />
+    <MetadataFile FileName="ConsultaColaborador3.xsd" MetadataType="Schema" ID="0b135252-c137-42a9-9601-255d3df0e739" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_1842427567" />
+    <MetadataFile FileName="ServicoColaborador2.wsdl" MetadataType="Wsdl" ID="b3a04378-96fc-415d-9bbc-0a1915b0e3c0" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?wsdl" />
+    <MetadataFile FileName="ConsultaColaborador4.xsd" MetadataType="Schema" ID="5169cf73-bea2-46da-8655-7c003e9539be" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_1012968756" />
+    <MetadataFile FileName="ConsultaColaborador5.xsd" MetadataType="Schema" ID="1f3464fe-9e25-49cc-a94f-689097d24697" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_1706070453" />
+    <MetadataFile FileName="ConsultaColaborador6.xsd" MetadataType="Schema" ID="257e3713-dfc4-4d56-b69e-451de7568fd8" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_319867059" />
+    <MetadataFile FileName="ConsultaColaborador7.xsd" MetadataType="Schema" ID="f006e732-6e72-4807-bae1-89040a99810c" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?SCHEMA%2FServicoConsultaColaborador%2FXsd%2FBusiness%2FConsultaColaboradorV2%2FXMLSchema_-1066336335" />
+    <MetadataFile FileName="ConsultaColaborador.wsdl" MetadataType="Wsdl" ID="4560a2ec-c7a0-471f-b873-7751c002fdb0" SourceId="1" SourceUrl="http://10.1.100.26:8011/ServicoConsultaColaborador/Proxy/V1/ConsultaColaborador?WSDL%2FServicoConsultaColaborador%2FWsdl%2FBusiness%2FV1%2FConsultaColaboradorV2%2FWSDL_-258442457" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

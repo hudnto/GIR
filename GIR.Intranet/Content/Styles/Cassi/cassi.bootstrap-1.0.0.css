@@ -1,0 +1,51 @@
+﻿/* Customização do framework de apresentação Bootstrap v3.1.1 (http://getbootstrap.com) 
+-------------------------------------------------------------------------------------*/
+
+.bs-example:after {
+	content: "Exemplo";
+}
+
+.breadcrumb > li + li:before {
+    content: ">>";
+}
+
+.breadcrumb > .active {
+    color: #666;
+}
+
+.navbar-inverse {
+	background-image: none !important;
+	background-color: #f8f8f8 !important;
+	border-color: #ccc !important;
+}
+
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+    color: #000;
+    text-shadow: none;
+}
+
+.navbar { 
+	min-height: 30px !important; 
+}
+.navbar .nav {
+    float: right;
+}
+
+.navbar .nav  li{
+	float: left; 
+}
+
+.collapsing {
+    -webkit-transition: height .10s ease;
+            transition: height .10s ease;
+}
+
+/* Menu/submenu responsive
+------------------------- */
+.navbar-toggle .icon-bar {
+	background-color: #000;
+}
+
+.navbar-collapse {
+	max-height: 2500px;
+}

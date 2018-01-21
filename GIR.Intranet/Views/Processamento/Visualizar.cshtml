@@ -1,0 +1,98 @@
+﻿@model GIR.Intranet.Models.VisualizaComprovanteVM
+@using GIR.Core.Infraestrutura.Extensoes
+@using GIR.Core.Negocio.Enum
+@using GIR.Intranet.Infraestructure.Helpers
+@{
+    ViewBag.Title = "Analisar Comprovantes de Rendimentos DIRF";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Conferir", "Processamento", FormMethod.Post))
+{
+    <div class="col-xs-12 col-md-12">
+        <div>
+            <h3>@ViewBag.Title</h3>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Codigo, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Codigo, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Descricao, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Descricao, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoExercicio, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.AnoExercicio.Year, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnoCalendario, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.AnoCalendario.Year, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.RadioButtonFor(m => m.TipoFuncionario, TipoFuncionario.FuncionarioCassi, new { disabled = "true" })
+                    @Html.Label(TipoFuncionario.FuncionarioCassi.GetDescription(), new { @class = "control-label" })
+                    @Html.RadioButtonFor(m => m.TipoContribuinte, TipoContribuinte.FuncionarioCassi, new { disabled = "true" })
+                    @Html.Label(TipoContribuinte.FuncionarioCassi.GetDescription(), new {@class = "control-label"})
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.RadioButtonFor(m => m.TipoContribuinte, TipoContribuinte.PrestadorFornecedor, new { disabled = "true" })
+                    @Html.Label(TipoContribuinte.PrestadorFornecedor.GetDescription(), new {@class = "control-label"})
+                    @Html.RadioButtonFor(m => m.TipoFuncionario, TipoFuncionario.PrestadorFornecedor, new { disabled = "true" })
+                    @Html.Label(TipoFuncionario.PrestadorFornecedor.GetDescription(), new { @class = "control-label" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("CPF/CNPJ:", new { @class = "control-label", @for = "CpfCnpj" })
+                    @Html.CpfcnpjFor(c => c.Comprovantes, new { @class = "chosen-select chosen-single form-control" })
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("UF:", new { @class = "control-label", @for = "Uf" })
+                    @Html.UfFor(u => u.Comprovantes, new { @class = "chosen-select chosen-single form-control" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("Área RH:", new { @class = "control-label", @for = "AreaRh" })
+                    @Html.AreaRhFor(a => a.Comprovantes, new { @class = "chosen-select chosen-single form-control", disabled = "true" })
+                </div>
+            </div>
+                </div>
+        <div class="row">
+            <div class="form-group col-sm-12 text-right">
+                @Html.Raw(Html.ActionLink("[img]", "Visualizar", "Processamento",
+                new { @class = "btn btn-primary" }).ToHtmlString().Replace("[img]", "<span class=\"fa fa-search\"></span> Pesquisar"))
+            </div>
+        </div>
+    </div>
+}
+
+<div class="col-xs-12 col-md-12">
+    <table id="tabelaComprovante"></table>
+</div>
+
+@section scripts {
+    <script src="~/Content/Scripts/Processamento/Visualizar.js"></script>
+}
