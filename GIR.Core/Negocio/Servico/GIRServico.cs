@@ -61,8 +61,27 @@ namespace GIR.Core.Negocio.Servico
 
                 try
                 {
-                    var contribuintes = lote.ContribuintesArquivoDirf.Where(p => p.Status == StatusContribuinte.Sucesso).ToList();
-                    var ocorrencias = lote.ContribuintesArquivoDirf.Where(p => p.Status != StatusContribuinte.Sucesso).ToList();
+
+                    List<ContribuinteDTO> contribuintes;
+                    List<ContribuinteDTO> ocorrencias;
+
+                    if (lote.Individual)
+                    {
+                        contribuintes = (lote.ContribuinteIndividual.Status == StatusContribuinte.Sucesso ?
+                                        new List<ContribuinteDTO> { lote.ContribuinteIndividual } :
+                                        new List<ContribuinteDTO>());
+
+                        ocorrencias = (lote.ContribuinteIndividual.Status != StatusContribuinte.Sucesso ? 
+                                        new List<ContribuinteDTO> { lote.ContribuinteIndividual } : 
+                                        new List<ContribuinteDTO>());
+                    }
+                    else
+                    {
+                        contribuintes = lote.ContribuintesArquivoTxt.Where(p => p.Status == StatusContribuinte.Sucesso).ToList();
+                        ocorrencias = lote.ContribuintesArquivoTxt.Where(p => p.Status != StatusContribuinte.Sucesso).ToList();
+                    }
+
+
                     lote.TotalArquivosGerados = contribuintes.Count;
                     lote.TotalArquivosImportados = lote.ArquivosImportados.Count();
 

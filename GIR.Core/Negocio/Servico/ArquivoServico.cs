@@ -47,7 +47,7 @@ namespace GIR.Core.Negocio.Servico
                     MigrarArquivosUpload(lote);
 
                     if (!lote.Individual)
-                        lote.ContribuintesArquivoDirf = LerDirfTxt(lote);
+                        lote.ContribuintesArquivoTxt = LerDirfTxt(lote);
 
                     SplitLote(lote);
                 }
@@ -169,7 +169,7 @@ namespace GIR.Core.Negocio.Servico
 
                     foreach (var cpfCnpj in cpfsCnpjs)
                     {
-                        contribuinte = lote.ContribuintesArquivoDirf.FirstOrDefault(c => c.CpfCnpj == cpfCnpj);
+                        contribuinte = lote.ContribuintesArquivoTxt.FirstOrDefault(c => c.CpfCnpj == cpfCnpj);
                         if (contribuinte != null)
                             break;
                     }
@@ -177,10 +177,10 @@ namespace GIR.Core.Negocio.Servico
                     if (contribuinte != null)
                     {
                         //Contribuinte encontrado no txt e pdf! 
-                        contribuinte.Arquivo.CaminhoArquivo = String.Format(@"{0}\{1}\{2}\{3}", CaminhoDiretorio, lote.AnoExercicio, Processados, parametro);
+                        contribuinte.Arquivo.CaminhoArquivo = caminho;
                         contribuinte.Arquivo.CaminhoArquivoBanco = String.Format(@"\{0}\{1}\{2}", lote.AnoExercicio, Processados, parametro);
 
-                        if (GerarArquivo(reader, caminho, contribuinte, pagina))
+                        if (GerarArquivo(reader, contribuinte, pagina))
                         {
                             contribuinte.Status = StatusContribuinte.Sucesso;
                             contribuinte.TipoSituacao = TipoSituacao.Processado;
@@ -209,31 +209,36 @@ namespace GIR.Core.Negocio.Servico
                     if (cpfsCnpjs.Count() < 0)
                         continue;
 
-                    if (lote.ContribuintesArquivoDirf.Count > 0)
+                    lock (lote.ContribuinteIndividual)
                     {
                         foreach (var cpfCnpj in cpfsCnpjs)
                         {
-                            Contribuinte = lote.ContribuintesArquivoDirf.FirstOrDefault(c => c.CpfCnpj == cpfCnpj);
-                            if (Contribuinte != null)
-                                break;
+                            if (string.IsNullOrEmpty(lote.ContribuinteIndividual.CpfCnpj))
+                            {
+                                lote.ContribuinteIndividual.CpfCnpj = cpfCnpj;
+                                lote.ContribuinteIndividual.Arquivo.CaminhoArquivo = caminho;
+                                lote.ContribuinteIndividual.Arquivo.CaminhoArquivoBanco = String.Format(@"\{0}\{1}\{2}", lote.AnoExercicio, Processados, parametro);
+
+                                if (GerarArquivo(reader, lote.ContribuinteIndividual, pagina))
+                                {
+                                    lote.ContribuinteIndividual.Status = StatusContribuinte.Sucesso;
+                                    lote.ContribuinteIndividual.TipoSituacao = TipoSituacao.Processado;
+                                }
+                            }
+                            else if(lote.ContribuinteIndividual.CpfCnpj == cpfCnpj)
+                            {
+                                if (GerarArquivo(reader, lote.ContribuinteIndividual, pagina))
+                                {
+                                    lote.ContribuinteIndividual.Status = StatusContribuinte.Sucesso;
+                                    lote.ContribuinteIndividual.TipoSituacao = TipoSituacao.Processado;
+                                }
+
+                            }
+                            else
+                            {
+                                throw new NegocioException("Rotina indicada para geração individual deve possuir arquivo que contenha apenas um CPF/CNPJ.");
+                            }
                         }
-
-                        if (Contribuinte == null)
-                            throw new NegocioException("Rotina indicada para geração individual deve possuir arquivo que contenha apenas um CPF/CNPJ.");
-
-                        GerarArquivo(reader, caminho, Contribuinte, pagina);
-                    }
-                    else
-                    {
-                        Contribuinte = new ContribuinteDTO();
-                        Contribuinte.CpfCnpj = cpfsCnpjs.FirstOrDefault();
-                        Contribuinte.Status = StatusContribuinte.Sucesso;
-                        Contribuinte.TipoSituacao = TipoSituacao.Processado;
-                        Contribuinte.Arquivo.CaminhoArquivo = String.Format(@"{0}\{1}\{2}\{3}", CaminhoDiretorio, lote.AnoExercicio, Processados, parametro);
-                        Contribuinte.Arquivo.CaminhoArquivoBanco = String.Format(@"\{0}\{1}\{2}", lote.AnoExercicio, Processados, parametro);
-
-                        lote.ContribuintesArquivoDirf.Add(Contribuinte);
-                        GerarArquivo(reader, caminho, Contribuinte, pagina);
                     }
                 }
             }
@@ -293,7 +298,7 @@ namespace GIR.Core.Negocio.Servico
             return false;
         }
 
-        private bool GerarArquivo(PdfReader reader, string pathRaiz, ContribuinteDTO contribuinte, int pagina)
+        private bool GerarArquivo(PdfReader reader, ContribuinteDTO contribuinte, int pagina)
         {
             var cpfCnpj = contribuinte.CpfCnpj.Replace(".", String.Empty).
                             Replace("-", String.Empty).Replace("/", String.Empty);
@@ -301,17 +306,17 @@ namespace GIR.Core.Negocio.Servico
             contribuinte.Arquivo.NomeArquivo = cpfCnpj;
             contribuinte.Arquivo.ExtensaoArquivo = ".pdf";
 
-            var pathArquivo = String.Format(@"{0}\{1}_TASK{2}{3}", pathRaiz, cpfCnpj, Task.CurrentId, ".pdf");
+            var pathArquivo = String.Format(@"{0}\{1}_TASK{2}{3}", contribuinte.Arquivo.CaminhoArquivo, cpfCnpj, Task.CurrentId, ".pdf");
 
             if (File.Exists(pathArquivo))
             {
                 int i = 1;
-                pathArquivo = String.Format(@"{0}\{1}_TASK{2}_{3}{4}", pathRaiz, cpfCnpj, Task.CurrentId, i, ".pdf");
+                pathArquivo = String.Format(@"{0}\{1}_TASK{2}_{3}{4}", contribuinte.Arquivo.CaminhoArquivo, cpfCnpj, Task.CurrentId, i, ".pdf");
 
                 while (File.Exists(pathArquivo))
                 {
                     i++;
-                    pathArquivo = String.Format(@"{0}\{1}_TASK{2}_{3}{4}", pathRaiz, cpfCnpj, Task.CurrentId, i, ".pdf");
+                    pathArquivo = String.Format(@"{0}\{1}_TASK{2}_{3}{4}", contribuinte.Arquivo.CaminhoArquivo, cpfCnpj, Task.CurrentId, i, ".pdf");
                 }
             }
 
@@ -437,7 +442,7 @@ namespace GIR.Core.Negocio.Servico
 
             File.Move(pathArquivoTemp, pathArquivo);
 
-            throw new InvalidPdfException("Teste");
+            //throw new InvalidPdfException("Teste");
         }
 
         private void MigrarArquivosUpload(LoteDTO lote)

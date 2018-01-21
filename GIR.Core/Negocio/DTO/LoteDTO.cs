@@ -23,7 +23,8 @@ namespace GIR.Core.Negocio.DTO
         public IEnumerable<ArquivoDTO> ArquivosImportados { get; set; }
         public int TotalArquivosImportados { get; set; }
         public int TotalArquivosGerados { get; set; }
-        public List<ContribuinteDTO> ContribuintesArquivoDirf { get; set; }
+        public List<ContribuinteDTO> ContribuintesArquivoTxt { get; set; }
+        public ContribuinteDTO ContribuinteIndividual { get; set; }
         public bool Individual { get; set; }
         public string LoginUsuario { get; set; }
         public String Ocorrencias { get; set; }
@@ -33,7 +34,8 @@ namespace GIR.Core.Negocio.DTO
         public LoteDTO()
         {
             ArquivosImportados = new List<ArquivoDTO>();
-            ContribuintesArquivoDirf = new List<ContribuinteDTO>();
+            ContribuintesArquivoTxt = new List<ContribuinteDTO>();
+            ContribuinteIndividual = new ContribuinteDTO();
         }
     }
 }

@@ -40,7 +40,16 @@ namespace GIR.TestePerformance
             using (_arquivoServico.Conexao = RedeUtil.RecuperarConexaoRede(_arquivoServico.CaminhoDiretorio, _arquivoServico.Usuario))
             {
                 Console.WriteLine("==========Teste de performance em arquivos==========");
+                Console.WriteLine("Digite SIM para processamento individual");
+                Console.WriteLine("Digite NÂO para processamento em lote");
                 lote = GerarLote();
+                var frase = Console.ReadLine();
+
+                if (!string.IsNullOrEmpty(frase) && frase.ToLower() == "sim")
+                    lote.Individual = true;
+                else
+                    lote.ContribuintesArquivoTxt = _arquivoServico.LerDirfTxt(lote);
+
                 var tarefas = new List<Task>();
 
                 //Para cada arquivo importado (upload) cria-se task para fazer a divisão desses arquivos
@@ -69,7 +78,7 @@ namespace GIR.TestePerformance
                         catch (Exception e)
                         {
                             //Caso falha a renomeacao dos arquivos ou merge
-                            lote.ContribuintesArquivoDirf.ForEach(c =>
+                            lote.ContribuintesArquivoTxt.ForEach(c =>
                             {
                                 if (c.Arquivo.CaminhoArquivo != null)
                                 {
@@ -77,10 +86,10 @@ namespace GIR.TestePerformance
                                     c.TipoSituacao = TipoSituacao.Erro;
                                 }
                             });
-
-                            var task = (antecedents.FirstOrDefault(a => a.Exception != null));
-
-                            var exception = task.Exception.InnerException ?? task.Exception;
+                            lote.ContribuinteIndividual.Status = StatusContribuinte.FalhaArquivo;
+                            lote.ContribuinteIndividual.TipoSituacao = TipoSituacao.Erro;
+                            
+                            var exception = e.InnerException ?? e;
                             var w32ex = exception as Win32Exception;
 
                             lote.TipoSituacao = TipoSituacao.Erro;
@@ -107,7 +116,7 @@ namespace GIR.TestePerformance
                         }
 
                         //Seta falha no arquivo pois não foi feito a renomeacao e nem o merge
-                        lote.ContribuintesArquivoDirf.ForEach(c =>
+                        lote.ContribuintesArquivoTxt.ForEach(c =>
                         {
                             if (c.Arquivo.CaminhoArquivo != null)
                             {
@@ -115,6 +124,8 @@ namespace GIR.TestePerformance
                                 c.TipoSituacao = TipoSituacao.Erro;
                             }
                         });
+                        lote.ContribuinteIndividual.Status = StatusContribuinte.FalhaArquivo;
+                        lote.ContribuinteIndividual.TipoSituacao = TipoSituacao.Erro;
 
                         task = (antecedents.FirstOrDefault(a => a.Exception != null));
 
@@ -162,8 +173,6 @@ namespace GIR.TestePerformance
 
                     Console.WriteLine("Sucesso na TASK SPLIT PDF ID:" + Task.CurrentId);
                     Debug.WriteLine("Sucesso na TASK SPLIT PDF ID:" + Task.CurrentId);
-
-                    throw new Exception("Teste");
                 }
                 catch (NegocioException e)
                 {
@@ -199,7 +208,6 @@ namespace GIR.TestePerformance
             lote.TipoSituacao = TipoSituacao.Processado;
             lote.InicioProcessamento = DateTime.Now;
             lote.ArquivosImportados = BuscarArquivosImportados(Ano);
-            lote.ContribuintesArquivoDirf = _arquivoServico.LerDirfTxt(lote);
 
             return lote;
         }
@@ -239,7 +247,8 @@ namespace GIR.TestePerformance
             
             var tarefas = new List<Task>();
             Task tarefa;
-            var contribuintes = lote.ContribuintesArquivoDirf.Where(p => p.Status == StatusContribuinte.Sucesso).ToList();
+            var contribuintes = (lote.Individual ? new List<ContribuinteDTO>{ lote.ContribuinteIndividual } : 
+                                 lote.ContribuintesArquivoTxt.Where(p => p.Status == StatusContribuinte.Sucesso).ToList());
 
             var dir = new DirectoryInfo(origem);
 
